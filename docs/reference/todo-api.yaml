@@ -1,0 +1,90 @@
+openapi: 3.0.0
+info:
+  title: todo-api
+  version: '1.0'
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  /todos:
+    get:
+      summary: TODOリスト取得
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Todo'
+      operationId: get-todos
+      description: ''
+    post:
+      summary: TODO作成
+      operationId: post-todos
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Todo'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TodoUpdateCommand'
+  '/todos/{id}':
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+    put:
+      summary: TODO更新
+      operationId: put-todo-id
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Todo'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TodoUpdateCommand'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/TodoUpdateCommand'
+    delete:
+      summary: TODO削除
+      operationId: delete-todo-id
+      responses:
+        '204':
+          description: No Content
+      description: ''
+components:
+  schemas:
+    Todo:
+      title: Todo
+      type: object
+      properties:
+        id:
+          type: integer
+        value:
+          type: string
+      required:
+        - id
+        - value
+    TodoUpdateCommand:
+      title: TodoUpdateCommand
+      type: object
+      properties:
+        value:
+          type: string
+      required:
+        - value
