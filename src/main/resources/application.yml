@@ -1,1 +1,13 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/todo
+    username: ${MYSQL_USER}
+    password: ${MYSQL_PASS}
+    driver-class-name: com.mysql.jdbc.Driver
 
+mybatis:
+  configuration:
+    mapUnderscoreToCamelCase: true
+    defaultFetchSize: 100
+    defaultStatementTimeout: 30
+    autoMappingUnknownColumnBehavior: FAILING
