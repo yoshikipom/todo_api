@@ -19,10 +19,6 @@ class TodoMapperTest {
   @Autowired
   private TodoMapper todoMapper;
 
-  @BeforeEach
-  void setUp() {
-  }
-
   @Test
   void insert_success() {
     var value = "insert-test";

@@ -12,6 +12,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class TodoRecord {
 
-  private int id;
+  private Integer id;
   private String value;
 }
