@@ -2,7 +2,6 @@ package com.example.todo.infra.db;
 
 
 import java.util.List;
-import java.util.Optional;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
